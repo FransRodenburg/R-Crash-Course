@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Day 3 Graphics with ggplot2 | R Crash Course</title>
+  <meta name="description" content="Day 3 Graphics with ggplot2 | R Crash Course" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Day 3 Graphics with ggplot2 | R Crash Course" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Day 3 Graphics with ggplot2 | R Crash Course" />
+  
+  
+  
+
+<meta name="author" content="Dr. F.J. Rodenburg   © 2020–2021 Universiteit Leiden" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="base-graphics.html"/>
+<link rel="next" href="data-manipulation.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Crash Course</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-this-course"><i class="fa fa-check"></i>Structure of This Course</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#examination"><i class="fa fa-check"></i>Examination</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation &amp; <code>swirl</code></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="installation.html"><a href="installation.html#installation-guide"><i class="fa fa-check"></i><b>1.1</b> Installation Guide</a></li>
+<li class="chapter" data-level="1.2" data-path="installation.html"><a href="installation.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.2</b> What is RStudio?</a></li>
+<li class="chapter" data-level="1.3" data-path="installation.html"><a href="installation.html#exercises"><i class="fa fa-check"></i><b>1.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="base-graphics.html"><a href="base-graphics.html"><i class="fa fa-check"></i><b>2</b> Base Graphics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="base-graphics.html"><a href="base-graphics.html#exercise-easy"><i class="fa fa-check"></i><b>2.1</b> Exercise (easy)</a></li>
+<li class="chapter" data-level="2.2" data-path="base-graphics.html"><a href="base-graphics.html#exercise-medium"><i class="fa fa-check"></i><b>2.2</b> Exercise (medium)</a></li>
+<li class="chapter" data-level="2.3" data-path="base-graphics.html"><a href="base-graphics.html#exercise-hard"><i class="fa fa-check"></i><b>2.3</b> Exercise (hard)</a></li>
+<li class="chapter" data-level="2.4" data-path="base-graphics.html"><a href="base-graphics.html#exercise-swirl"><i class="fa fa-check"></i><b>2.4</b> Exercise (<code>swirl</code>)</a></li>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#hall-of-fame"><i class="fa fa-check"></i>Hall of Fame</a>
+<ul>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#advanced-statistics-2021"><i class="fa fa-check"></i>Advanced Statistics (2021)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>3</b> Graphics with <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ggplot2.html"><a href="ggplot2.html#exercises-1"><i class="fa fa-check"></i><b>3.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.2" data-path="ggplot2.html"><a href="ggplot2.html#extra-data-cleaning"><i class="fa fa-check"></i><b>3.2</b> Extra: Data Cleaning (*)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Reading &amp; Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#reading-data"><i class="fa fa-check"></i><b>4.1</b> Reading Data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#what-is-tidy-data"><i class="fa fa-check"></i><b>4.2</b> What Is Tidy Data?</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#repeated-measures-time-series"><i class="fa fa-check"></i><b>4.2.1</b> Repeated Measures &amp; Time Series</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#verifying-the-results"><i class="fa fa-check"></i><b>4.4</b> Verifying the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="MWE.html"><a href="MWE.html"><i class="fa fa-check"></i><b>5</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="MWE.html"><a href="MWE.html#useful-information"><i class="fa fa-check"></i><b>5.1</b> Useful information:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="self-test.html"><a href="self-test.html"><i class="fa fa-check"></i>Self-Test</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Crash Course</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ggplot2" class="section level1" number="3">
+<h1><span class="header-section-number">Day 3</span> Graphics with <code>ggplot2</code></h1>
+<p><small><i>A demonstration of one of the many specialized plotting routines offered by <code>ggplot2</code>.</p>
+<p>Total video length: … min.<br />
+Exercise length: 30–90 min.</i></small></p>
+<hr />
+<p>Can you plot the number of COVID-19 infections across the world on a specific day using just <code>plot</code>, <code>lines</code>, <code>points</code>, <code>text</code> and <code>polygon</code>? Of course… but it would probably take a very long time. If you install the following specialized packages:</p>
+<p><small></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ggplot2.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;COVID19&quot;</span>)</span>
+<span id="cb3-2"><a href="ggplot2.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb3-3"><a href="ggplot2.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rgeos&quot;</span>)</span>
+<span id="cb3-4"><a href="ggplot2.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rnaturalearth&quot;</span>)</span>
+<span id="cb3-5"><a href="ggplot2.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rnaturalearthdata&quot;</span>)</span>
+<span id="cb3-6"><a href="ggplot2.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</span></code></pre></div>
+<p></small></p>
+<p>Here is how you could do that with <code>ggplot2</code>:</p>
+<p><small></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="ggplot2.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load package required for easy access to COVID-19 data</span></span>
+<span id="cb4-2"><a href="ggplot2.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;COVID19&quot;</span>)</span>
+<span id="cb4-3"><a href="ggplot2.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="ggplot2.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages required for easy access to Earth data</span></span>
+<span id="cb4-5"><a href="ggplot2.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rnaturalearth&quot;</span>)</span>
+<span id="cb4-6"><a href="ggplot2.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rnaturalearthdata&quot;</span>)</span>
+<span id="cb4-7"><a href="ggplot2.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sf&quot;</span>)</span>
+<span id="cb4-8"><a href="ggplot2.html#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="ggplot2.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ggplot2 and set background to white</span></span>
+<span id="cb4-10"><a href="ggplot2.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb4-11"><a href="ggplot2.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb4-12"><a href="ggplot2.html#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="ggplot2.html#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Earth data from rnaturalearthdata package</span></span>
+<span id="cb4-14"><a href="ggplot2.html#cb4-14" aria-hidden="true" tabindex="-1"></a>Earth <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">&quot;medium&quot;</span>, <span class="at">returnclass =</span> <span class="st">&quot;sf&quot;</span>)</span>
+<span id="cb4-15"><a href="ggplot2.html#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="ggplot2.html#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Load COVID-19 data for a specific date</span></span>
+<span id="cb4-17"><a href="ggplot2.html#cb4-17" aria-hidden="true" tabindex="-1"></a>COVID19 <span class="ot">&lt;-</span> <span class="fu">covid19</span>()</span>
+<span id="cb4-18"><a href="ggplot2.html#cb4-18" aria-hidden="true" tabindex="-1"></a>maxc    <span class="ot">&lt;-</span> <span class="fu">max</span>(COVID19<span class="sc">$</span>confirmed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># maximum number of cases</span></span>
+<span id="cb4-19"><a href="ggplot2.html#cb4-19" aria-hidden="true" tabindex="-1"></a>date    <span class="ot">&lt;-</span> <span class="st">&quot;2021-06-30&quot;</span></span>
+<span id="cb4-20"><a href="ggplot2.html#cb4-20" aria-hidden="true" tabindex="-1"></a>Cases   <span class="ot">&lt;-</span> COVID19[COVID19<span class="sc">$</span>date <span class="sc">==</span> date, ]</span>
+<span id="cb4-21"><a href="ggplot2.html#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="ggplot2.html#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Data cleaning</span></span>
+<span id="cb4-23"><a href="ggplot2.html#cb4-23" aria-hidden="true" tabindex="-1"></a>countries                               <span class="ot">&lt;-</span> Cases<span class="sc">$</span>administrative_area_level_1</span>
+<span id="cb4-24"><a href="ggplot2.html#cb4-24" aria-hidden="true" tabindex="-1"></a>countries[countries <span class="sc">==</span> <span class="st">&quot;United States&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;United States of America&quot;</span></span>
+<span id="cb4-25"><a href="ggplot2.html#cb4-25" aria-hidden="true" tabindex="-1"></a>countries[countries <span class="sc">==</span> <span class="st">&quot;Korea, South&quot;</span>]  <span class="ot">&lt;-</span> <span class="st">&quot;South Korea&quot;</span></span>
+<span id="cb4-26"><a href="ggplot2.html#cb4-26" aria-hidden="true" tabindex="-1"></a>countries[countries <span class="sc">==</span> <span class="st">&quot;Cote d&#39;Ivoire&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Ivory Coast&quot;</span></span>
+<span id="cb4-27"><a href="ggplot2.html#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="ggplot2.html#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Match the confirmed cases to the list of countries in the Earth data</span></span>
+<span id="cb4-29"><a href="ggplot2.html#cb4-29" aria-hidden="true" tabindex="-1"></a>wh          <span class="ot">&lt;-</span> <span class="fu">match</span>(Earth<span class="sc">$</span>admin, countries)</span>
+<span id="cb4-30"><a href="ggplot2.html#cb4-30" aria-hidden="true" tabindex="-1"></a>Earth<span class="sc">$</span>Cases <span class="ot">&lt;-</span> Cases<span class="sc">$</span>confirmed[wh]</span>
+<span id="cb4-31"><a href="ggplot2.html#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="ggplot2.html#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb4-33"><a href="ggplot2.html#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Earth) <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Cases)) <span class="sc">+</span></span>
+<span id="cb4-34"><a href="ggplot2.html#cb4-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, maxc), <span class="at">option =</span> <span class="st">&quot;plasma&quot;</span>, <span class="at">trans =</span> <span class="st">&quot;sqrt&quot;</span>) <span class="sc">+</span></span>
+<span id="cb4-35"><a href="ggplot2.html#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="fu">paste</span>(<span class="st">&quot;Confirmed infections on&quot;</span>, date))</span></code></pre></div>
+<p></small></p>
+<p>Provided you have the latest version of R installed and the required packages were installed correctly, this will return the following:</p>
+<p><img src="figures/COVIDEarth.png" width="1008" /></p>
+<p>Using less than 50 lines of code, we now have a script that generates a world map colored by the number of infections on a particular day.</p>
+<div id="exercises-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Exercises</h2>
+<p>If you get stuck on any of the exercises, you can watch the video below to get unstuck. <b>In case of installation problems</b>, contact one of the supervisors or assistants, or work together with a student who has successfully installed the packages.</p>
+<ol style="list-style-type: decimal">
+<li>Install the required packages and run the script to reproduce the figure.</li>
+<li>Look at the legend. What does “3e+07” mean?</li>
+<li>Read through the script. Can you change the figure to show the number of infections one month earlier? <small><em>(Hint: Only one line in the code needs to be changed.)</em></small></li>
+<li>Delete <code>, trans = "sqrt"</code> from the script and run it again. What did this part do, and why would that be desirable? <small><em>(You may restore the original script after this.)</em></small></li>
+<li>Delete the entire second to last line from the script. What did this line do? <small><em>(You may restore the original script after this.)</em></small></li>
+<li>Essentially, <code>ggplot</code> works like this: <br><code>ggplot(dataset) + whattoshow() + extraoption1() + extraoption2 + ...</code><br> Add the following to the <code>ggplot</code> chain in the script: <br><code>+ coord_sf(xlim = c(-10, 35), ylim = c(35, 70))</code><br> Run the script again. What does this do?</li>
+<li>Can you change the <code>xlim</code> and <code>ylim</code> values from the previous question to center the map around Africa?</li>
+<li>Go to the <a href="https://github.com/sjmgarnier/viridis/#the-color-maps">github page</a> for the <code>viridis</code> package. What is the point of this package?</li>
+<li>Can you change the <code>ggplot</code> part of our script to use a different color scheme? <small><em>(Hint: We are already using one of the viridis color schemes, so you only have to change something, not add anything new.)</em></small></li>
+<li>If you click on <code>Earth</code> in the <a href="https://youtu.be/AHAR7j-IUOw?t=162">environment pane</a>, or if you run <code>View(Earth)</code> in the <a href="https://youtu.be/AHAR7j-IUOw?t=133">console</a>, you can see all the variables stored in the <code>Earth</code> data set. Can you change the original script to show the population estimates instead of the number of infections?</li>
+</ol>
+<p><strong>[video explaining the script to be included]</strong></p>
+</div>
+<div id="extra-data-cleaning" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Extra: Data Cleaning (*)</h2>
+<p><small><em>If you have time left, you can try and complete the additional exercises here.</em></small></p>
+<p>The COVID-19 and Earth data sets use different names for countries. So how did I know what names to replace with what?</p>
+<p>You could simply print both lists of countries and manually look for names that are written differently in both data sets:</p>
+<p><small></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ggplot2.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Country names in the Earth data set</span></span>
+<span id="cb5-2"><a href="ggplot2.html#cb5-2" aria-hidden="true" tabindex="-1"></a>Earth<span class="sc">$</span>admin</span>
+<span id="cb5-3"><a href="ggplot2.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="ggplot2.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Country names in the COVID-19 data set</span></span>
+<span id="cb5-5"><a href="ggplot2.html#cb5-5" aria-hidden="true" tabindex="-1"></a>countries</span></code></pre></div>
+<p></small></p>
+<p>But these commands will return lists of over 200 countries… A much easier way is to simply look at which countries were unavailable after the matching step. For example:</p>
+<p><small></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ggplot2.html#cb6-1" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> Cases<span class="sc">$</span>administrative_area_level_1</span>
+<span id="cb6-2"><a href="ggplot2.html#cb6-2" aria-hidden="true" tabindex="-1"></a>wh        <span class="ot">&lt;-</span> <span class="fu">match</span>(Earth<span class="sc">$</span>admin, countries)</span>
+<span id="cb6-3"><a href="ggplot2.html#cb6-3" aria-hidden="true" tabindex="-1"></a>Earth<span class="sc">$</span>admin[<span class="fu">is.na</span>(wh)]</span></code></pre></div>
+<pre><code>##  [1] &quot;Aruba&quot;                                   
+##  [2] &quot;Anguilla&quot;                                
+##  [3] &quot;Aland&quot;                                   
+##  ...  (49 countries omitted for brevity)                              
+## [53] &quot;United States of America&quot;                
+## [54] &quot;Vatican&quot;                                 
+## [55] &quot;British Virgin Islands&quot;                  
+## [56] &quot;United States Virgin Islands&quot;            
+## [57] &quot;Wallis and Futuna&quot;</code></pre>
+<p></small></p>
+<p>This gives us a list of <em>only</em> the countries in the <code>Earth</code> data set that were <em>not</em> matched. Here we see that, for instance, <code>"United States of America"</code> was not matched to the COVID-19 data, even though we know there were large number of cases in the US.</p>
+<p>The next step is to see how this country is called in the other data set. Again, you could just look at all the names in the variable <code>countries</code>, but how about we only check countries which name contains a capital letter “U”:</p>
+<p><small></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="ggplot2.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Countries in the COVID-19 data set with a capital letter U</span></span>
+<span id="cb8-2"><a href="ggplot2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>countries[<span class="fu">grep</span>(<span class="st">&quot;U&quot;</span>, countries)]</span></code></pre></div>
+<pre><code>## [1] &quot;Uzbekistan&quot;               &quot;Uruguay&quot;                 
+## [3] &quot;United States of America&quot; &quot;United Arab Emirates&quot;    
+## [5] &quot;Ukraine&quot;                  &quot;Virgin Islands, U.S.&quot;    
+## [7] &quot;Uganda&quot;                   &quot;United Kingdom&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="ggplot2.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Countries in the Earth data set with a capital letter U</span></span>
+<span id="cb10-2"><a href="ggplot2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>Earth<span class="sc">$</span>admin[<span class="fu">grep</span>(<span class="st">&quot;U&quot;</span>, Earth<span class="sc">$</span>admin)]</span></code></pre></div>
+<pre><code>## [1] &quot;United Arab Emirates&quot;         &quot;United Kingdom&quot;              
+## [3] &quot;United Republic of Tanzania&quot;  &quot;Uganda&quot;                      
+## [5] &quot;Ukraine&quot;                      &quot;Uruguay&quot;                     
+## [7] &quot;United States of America&quot;     &quot;Uzbekistan&quot;                  
+## [9] &quot;United States Virgin Islands&quot;</code></pre>
+<p></small></p>
+<p>Here we see the problem: In the COVID-19 data set, the US is called <code>"United States"</code>, whereas in the <code>Earth</code> data set it is called <code>"United States of America"</code>.</p>
+<p>The solution is to overwrite the name so they are both the same:</p>
+<p><small></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ggplot2.html#cb12-1" aria-hidden="true" tabindex="-1"></a>countries[countries <span class="sc">==</span> <span class="st">&quot;United States&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;United States of America&quot;</span></span></code></pre></div>
+<p></small></p>
+<p>And like that, you can check all the unmatched countries for perhaps other names they might be known by.</p>
+<p>Here is another example:</p>
+<p><small></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ggplot2.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Countries containing &quot;Congo&quot; in the COVID-19 data set</span></span>
+<span id="cb13-2"><a href="ggplot2.html#cb13-2" aria-hidden="true" tabindex="-1"></a>countries[<span class="fu">grep</span>(<span class="st">&quot;Congo&quot;</span>, countries)]</span></code></pre></div>
+<pre><code>## [1] &quot;Congo&quot;                                
+## [2] &quot;Congo, the Democratic Republic of the&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ggplot2.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Countries containing &quot;Congo&quot; in the Earth data set</span></span>
+<span id="cb15-2"><a href="ggplot2.html#cb15-2" aria-hidden="true" tabindex="-1"></a>Earth<span class="sc">$</span>admin[<span class="fu">grep</span>(<span class="st">&quot;Congo&quot;</span>, Earth<span class="sc">$</span>admin)]</span></code></pre></div>
+<pre><code>## [1] &quot;Democratic Republic of the Congo&quot; &quot;Republic of Congo&quot;</code></pre>
+<p></small></p>
+<ol style="list-style-type: decimal">
+<li>As you can see above, the two Congos have different names in either data set. Read the original script carefully. Add what you think is necessary to color the two Congos as well. To see if it works, simply run the script again to produce the (new) figure.</li>
+<li>Using the method described above, can you color any other countries which are now grey? <small><em>(Hint: Some countries do not have any data on confirmed cases, like Turkmenistan and North Korea. You can leave these uncolored.)</em></small></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="base-graphics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R Crash Course.pdf", "R Crash Course.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

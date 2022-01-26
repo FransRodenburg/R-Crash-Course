@@ -1,0 +1,245 @@
+---
+title: "Birthday Cake!"
+author: "student"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+HAPPY BIRTHDAY
+
+First I did the icing etc. because it would otherwise cover the letters/lines.
+
+```{r}
+plot(NA, xlim = c(0, 20), ylim = c(-2, 25), xlab = "", ylab = "", las = 1, bty = "n", main = "Happy Birthday!", axes = FALSE)
+
+##Flames (first the tall ones 5x, than short ones 4x)
+
+xx <- c(7.90, 8 , 8.05, 7.95)
+yy <- c(19.65, 19.45, 19.65, 20)
+polygon(xx, yy,col = "orange", lty = 6, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(xx+1, yy,col = "orange", lty = 6, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(xx+2, yy,col = "orange", lty = 6, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(xx+3, yy,col = "orange", lty = 6, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(xx+4, yy,col = "orange", lty = 6, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+
+
+ke <- c(10.43, 10.5 , 10.55, 10.5)
+kf <- c(19.1, 18.95, 19.15, 19.4)
+polygon(ke, kf,col = "orange", lty = 1, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(ke+1, kf,col = "orange", lty = 1, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(ke-1, kf,col = "orange", lty = 1, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+polygon(ke-2, kf,col = "orange", lty = 1, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+
+
+#Icing/Color
+
+##Layer 1
+x <- c(1, 19, 19, 1)
+y <- c(-2, -2, 4, 4)
+polygon(x, y, col = "#FFFFCC", lty = 6, angle = 15, lwd = 3, fillOddEven = TRUE, border = FALSE)
+
+##Chocolate drip
+
+aq <- c(1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5)
+aw <- c(4, 1, 0.5, 0.4, 0.3, 0.2, 0.3, 0.4, 0.5, 1, 4)
+polygon(aq, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+1, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+
+ae <- c(4, 0, -0.5, -0.6, -0.7, -0.8, -0.7, -0.6, -0.5, 0, 4)
+ak <- c(4, 0, -0.8, -0.9, -1, -1.1, -1, -0.9, -0.8, 0, 4)
+polygon(aq+2, ae, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+3, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+4, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+5, ae, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+6, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+7, ak, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+8, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+9, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+10, ae, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+11, ak, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+12, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+13, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+14, ae, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+15, aw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+16, ak, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(aq+17, ae, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+
+bq <- c(1.5, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.1)
+bw <- c(4, 3, 3.1, 3.2, 3.4, 3.5, 3.35, 3.3, 4)
+polygon(bq, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+1, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+2, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+3, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+4, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+5, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+6, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+7, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+8, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+9, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+10, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+11, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+12, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+13, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+14, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+15, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+16, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+polygon(bq+16.93, bw, col = "#993300", lty = 1, angle = 15, lwd = 3, border = FALSE)
+
+
+##Layer 2
+a <- c(2, 18, 18, 2)
+b <- c(4, 4, 9, 9)
+polygon(a, b, col = "#FFCCCC", lty = 2, lwd = 3, border = FALSE)
+
+abc <- c(2, 18, 18, 2)
+bcd <- c(4, 4, 4.5, 4.5)
+polygon(abc, bcd, col = "#CC6600", lty = 2, lwd = 3, border = FALSE)
+
+cde <- c(2, 18, 18, 2)
+def <- c(8.5, 8.5, 9, 9)
+polygon(cde, def, col = "#CC6600", lty = 2, lwd = 3, border = FALSE)
+
+##Layer 3
+c <- c(3, 17, 17, 3)
+d <- c(9, 9, 13, 13)
+polygon(c, d, col = "#FFCC99", lty = 2, lwd = 3, border = FALSE)
+
+sq <- c(3, 17, 17, 3)
+qs <- c(9, 9, 13, 13)
+polygon(sq, qs, density = 3, col = "#CC6600", lty = 1, lwd = 2, border = FALSE)
+po <- c(3, 17, 17, 3)
+op <- c(9, 9, 13, 13)
+polygon(po, op, density = 3, col = "#CC6600", angle = -45, lty = 1, lwd = 2, border = FALSE)
+
+##Layer 4
+e <- c(5, 15, 15, 5)
+f <- c(13, 13, 16, 16)
+polygon(e, f, col = "#FFFFCC", lty = 2, lwd = 3, border = FALSE)
+ss <- c(5, 15, 15, 5)
+qq <- c(13, 13, 16, 16)
+polygon(ss, qq, density = 10, col = "#993300", lty = 3, lwd = 3, border = FALSE)
+pp <- c(5, 15, 15, 5)
+oo <- c(13, 13, 16, 16)
+polygon(pp, oo, density = 10, col = "#993300", angle = -45, lty = 3, lwd = 3, border = FALSE)
+
+##Layer 5
+g <- c(7, 13, 13, 7)
+h <- c(16, 16, 18, 18)
+polygon(g, h, col = "#FFCCCC", lty = 2, lwd = 3, border = FALSE)
+q <- c(7, 13, 13, 7)
+w <- c(16, 16, 18, 18)
+polygon(q, w, density = 8 ,col = "#FFFFCC", lty = 1, angle = -30, lwd = 3, fillOddEven = TRUE, border = FALSE)
+
+
+# Level 1
+## Horizontal lines
+lines(c(1, 19), c(-2, -2))
+
+## Vertical lines
+lines(c(1, 1), c(-2, 4))
+lines(c(19, 19), c(-2, 4))
+
+# Level 2
+## Horizontal lines
+lines(c(1, 19), c(4, 4))
+lines(c(2, 18), c(9,9))
+lines(c(2.5,3.5), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(4, 5), c(8,8), col = "#993300", lwd = 3)
+lines(c(4,5), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(5.5, 6.5), c(8,8), col = "#993300", lwd = 3)
+lines(c(5.5, 6.5), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(7, 8), c(8,8), col = "#993300", lwd = 3)
+lines(c(7, 8), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(8.5, 9.5), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(8.5, 9.5), c(5,5), col = "#993300", lwd = 3)
+lines(c(11, 11.8), c(5,5), col = "#993300", lwd = 3)
+lines(c(11, 11.8), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(11, 11.8), c(8,8), col = "#993300", lwd = 3)
+lines(c(12.5, 13), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(13.5, 14.3), c(5,5), col = "#993300", lwd = 3)
+lines(c(13.5, 14.3), c(8,8), col = "#993300", lwd = 3)
+lines(c(15, 16), c(8,8), col = "#993300", lwd = 3)
+lines(c(15, 16), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(16.5, 17.5), c(6.5,6.5), col = "#993300", lwd = 3)
+lines(c(16.5, 17.5), c(5,5), col = "#993300", lwd = 3)
+
+
+## Vertical lines
+lines(c(2, 2), c(4, 9))
+lines(c(18, 18), c(4, 9))
+lines(c(2.5,2.5), c(5, 8), col = "#993300", lwd = 3)
+lines(c(3.5,3.5), c(5, 8), col = "#993300", lwd = 3)
+lines(c(4, 4), c(5, 8), col = "#993300", lwd = 3)
+lines(c(5, 5), c(5, 8), col = "#993300", lwd = 3)
+lines(c(5.5, 5.5), c(5, 8), col = "#993300", lwd = 3)
+lines(c(6.5, 6.5), c(6.5, 8), col = "#993300", lwd = 3)
+lines(c(7, 7), c(5, 8), col = "#993300", lwd = 3)
+lines(c(8, 8), c(6.5, 8), col = "#993300", lwd = 3)
+lines(c(8.5, 8.5), c(6.5, 8), col = "#993300", lwd = 3)
+lines(c(9.5, 9.5), c(5, 8), col = "#993300", lwd = 3)
+lines(c(11, 11), c(5, 8), col = "#993300", lwd = 3)
+lines(c(12, 12), c(5.2, 6.3), col = "#993300", lwd = 3)
+lines(c(12, 12), c(6.7, 7.8), col = "#993300", lwd = 3)
+lines(c(13.5, 13.5), c(5, 8), col = "#993300", lwd = 3)
+lines(c(14.5, 14.5), c(5.2, 7.8), col = "#993300", lwd = 3)
+lines(c(15,15), c(5, 8), col = "#993300", lwd = 3)
+lines(c(16,16), c(5, 8), col = "#993300", lwd = 3)
+lines(c(16.5,16.5), c(6.5, 8), col = "#993300", lwd = 3)
+lines(c(17.5,17.5), c(5, 8), col = "#993300", lwd = 3)
+
+## diagonal lines
+lines(c(11.8, 12), c(8, 7.8), col = "#993300", lwd = 3)
+lines(c(11.8, 12), c(6.5, 6.7), col = "#993300", lwd = 3)
+lines(c(11.8, 12), c(6.5, 6.3), col = "#993300", lwd = 3)
+lines(c(11.8, 12), c(5.0, 5.2), col = "#993300", lwd = 3)
+lines(c(14.3, 14.5), c(5.0, 5.2), col = "#993300", lwd = 3)
+lines(c(14.3, 14.5), c(8.0, 7.8), col = "#993300", lwd = 3)
+
+# Level 3
+## Horizontal lines
+lines(c(3, 17), c(13, 13))
+lines(c(3, 17), c(9, 9))
+## Vertical lines
+lines(c(3, 3), c(9, 13))
+lines(c(17, 17), c(9, 13))
+
+
+# Level 4
+## Horizontal line
+lines(c(5, 15), c(16, 16))
+## Vertical lines
+lines(c(5, 5), c(13, 16))
+lines(c(15, 15), c(13, 16))
+
+# Level 5
+## Horizontal lines
+lines(c(7, 13), c(18, 18))
+## Vertical lines
+lines(c(7, 7), c(16, 18))
+lines(c(13, 13), c(16, 18))
+
+#Sparks
+lines(c(6.2, 7.5), c(21.5, 20))         #tweede van links
+lines(c(13.8, 12.5), c(21.5, 20))       #tweede van rechts
+lines(c(10, 10), c(25, 21.5))           #middelste
+lines(c(8.5, 9), c(24.5, 21.2))
+lines(c(11.5, 11), c(24.5, 21.2))
+lines(c(7, 8.2), c(23.5, 21))
+lines(c(13, 11.8), c(23.5, 21))
+lines(c(6, 7.3), c(18.8, 19))
+lines(c(14, 12.7), c(18.8, 19))
+
+# Candles long ones
+k <- 5
+kat <- seq(8, 12, length.out = k)
+h <- 1.5
+segments(x0 = kat, x1 = kat, y0 = rep(18, k), y1 = rep(18 + h, k), lwd = 2)
+
+# Candles short ones
+vv <- 4
+bbb <- seq(8.5, 11.5, length.out = vv)
+hoog <- 1.0
+segments(x0 = bbb, x1 = bbb, y0 = rep(18, vv), y1 = rep(18 + hoog, vv), lwd = 3)
+```
