@@ -1,3 +1,5 @@
+tab:unnamed-chunk-19
+tab:unnamed-chunk-20
 installation
 installation-guide
 what-is-rstudio
@@ -13,8 +15,9 @@ extra-data-cleaning
 data-manipulation
 reading-data
 what-is-tidy-data
-repeated-measures-time-series
-exercises-2
-verifying-the-results
+what-is-untidy-data
+exercise-easy-1
+exercise-medium-1
+exercise-hard-1
 MWE
 useful-information

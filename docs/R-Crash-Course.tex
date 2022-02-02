@@ -524,10 +524,10 @@ The next step is to see how this country is called in the other data set. Again,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Uzbekistan"               "Uruguay"                 
-## [3] "United States of America" "United Arab Emirates"    
-## [5] "Ukraine"                  "Virgin Islands, U.S."    
-## [7] "Uganda"                   "United Kingdom"
+## [1] "United Arab Emirates"     "Uganda"                  
+## [3] "United States of America" "Virgin Islands, U.S."    
+## [5] "Ukraine"                  "Uruguay"                 
+## [7] "Uzbekistan"               "United Kingdom"
 \end{verbatim}
 
 \begin{Shaded}
@@ -567,8 +567,8 @@ Here is another example:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Congo"                                
-## [2] "Congo, the Democratic Republic of the"
+## [1] "Congo, the Democratic Republic of the"
+## [2] "Congo"
 \end{verbatim}
 
 \begin{Shaded}
@@ -594,10 +594,10 @@ Here is another example:
 \hypertarget{data-manipulation}{%
 \chapter{Reading \& Manipulating Data}\label{data-manipulation}}
 
-\ldots{}
+An introduction to storing and converting data using the tidy format.
 
 Total video length: 4 min.\\
-Exercise length: \ldots--\ldots{} min.
+Exercise length: 30--90 min.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -609,54 +609,234 @@ There are many ways to read data into R. A simple method is explained in the vid
 \hypertarget{what-is-tidy-data}{%
 \section{What Is Tidy Data?}\label{what-is-tidy-data}}
 
-(\ldots) to be included.
+A standardized way to store data is by having \textbf{rows represent observations} and \textbf{columns represent variables}.
 
-\hypertarget{repeated-measures-time-series}{%
-\subsection{Repeated Measures \& Time Series}\label{repeated-measures-time-series}}
+For example, take a look at the first few rows of the \texttt{iris} data set:
 
-(\ldots) to be included.
+\label{tab:unnamed-chunk-19}Tidy data. Every row is a single flower. Every column is a single variable.
 
-\hypertarget{exercises-2}{%
-\section{Exercises}\label{exercises-2}}
+Sepal.Length
 
-On the github page for the exercises, you can find two (untidy) data files:
+Sepal.Width
 
-\begin{itemize}
-\tightlist
-\item
-  A Google Sheets file that shows \ldots{} categories as separate columns;
-\item
-  A set of three CSV files that each represent a different replicate of the same experiment.
-\end{itemize}
+Petal.Length
 
-Your goal is to read each of these data sets into R and then convert them to tidy format.
+Petal.Width
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# (...) to be included}
-\end{Highlighting}
-\end{Shaded}
+Species
+
+5.1
+
+3.5
+
+1.4
+
+0.2
+
+setosa
+
+4.9
+
+3.0
+
+1.4
+
+0.2
+
+setosa
+
+4.7
+
+3.2
+
+1.3
+
+0.2
+
+setosa
+
+4.6
+
+3.1
+
+1.5
+
+0.2
+
+setosa
+
+5.0
+
+3.6
+
+1.4
+
+0.2
+
+setosa
+
+5.4
+
+3.9
+
+1.7
+
+0.4
+
+setosa
+
+\hypertarget{what-is-untidy-data}{%
+\section{What Is Untidy Data?}\label{what-is-untidy-data}}
+
+Sometimes it is tempting to use a different format. For example, here are the first few rows of a fictional qPCR data set performed in triplicates:
+
+\label{tab:unnamed-chunk-20}Untidy data. A single row contains three different experimental observations.
+
+Gene
+
+Treatment
+
+Ct value in exp. 1
+
+Ct value in exp. 2
+
+Ct value in exp. 3
+
+A
+
+control
+
+22.8
+
+16.0
+
+17.2
+
+B
+
+control
+
+22.2
+
+15.7
+
+19.5
+
+C
+
+control
+
+23.0
+
+20.4
+
+23.7
+
+D
+
+control
+
+14.5
+
+18.9
+
+18.9
+
+E
+
+control
+
+17.6
+
+22.2
+
+17.5
+
+A
+
+ADH-/-
+
+20.8
+
+15.6
+
+20.5
+
+This may look like a more intuitive way to store your data, but most statistical software will not know what to do with it. Every row should contain a single gene's C\(_t\)-value from a single replicate. You can view the correct way to store it \href{https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/}{here}.
+
+Storing data in tidy format will greatly simplify analysis and almost everything we use in the \href{https://fransrodenburg.github.io/General-Research-Skills/}{GRS course} expects data to be in this format.
+
+\hypertarget{exercise-easy-1}{%
+\section{Exercise (easy)}\label{exercise-easy-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Save the first example data to CSV and read it into R, as explained in the \href{https://youtu.be/BGUqZc-Pb8w?t=36}{video}.
+  Watch the \href{https://youtu.be/BGUqZc-Pb8w}{video} on how to read data in R;
 \item
-  \ldots{}
-  X. Create a subset of the data called \texttt{Subset} that contain only measurements of \ldots{}
+  Download \href{data/humanheight.xlsx}{this Excel file};
+\item
+  Read the data into R as explained in step 1;
+\item
+  Convert the data set to tidy format using R code.
 \end{enumerate}
 
-\hypertarget{verifying-the-results}{%
-\section{Verifying the Results}\label{verifying-the-results}}
+There are different ways to complete this exercise. For example you could use the dollar sign (\texttt{\$}) or square brackets (\texttt{{[}\ ,\ {]}}) to indicate which column you want.
 
-To see if your data are indeed in tidy format, the script below will attempt to perform an analysis on each. If it works, your solution is correct! Copy the code below and see if your data sets are tidy:
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Run a \(t\)-test to compare male and female height. See the help page for \texttt{t.test}. If you don't remember which \(t\)-test to use when, you may use the default;
+\item
+  Report your conclusion at a significance level of \(0.05\).
+\end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# (...) to be included}
-\end{Highlighting}
-\end{Shaded}
+HINT: The following are useful functions you might use for this: \texttt{c} (combine/concatenate), \texttt{rep} (repeat/replicate), \texttt{rbind} (rowbind), \texttt{cbind} (column bind). Use the help files, or Google if needed to find out how they work.
+
+\hypertarget{exercise-medium-1}{%
+\section{Exercise (medium)}\label{exercise-medium-1}}
+
+The following \href{https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/}{Google Sheets file} contains shows three versions of the same data set. The tab ``tidy'' is how I wish people sent me data. The tab ``untidy'' is what students often send me after at least trying to put it in the right format. The tab ``headache'' is closer to what people send me for consultancy.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open the \href{https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/}{Google Sheets file};
+\item
+  Download the ``untidy'' tab as a .csv file and read it into R;
+\item
+  Convert the file to tidy format;
+\item
+  Compare the resulting data frame with the "tidy' tab, to see if you got it right.
+\end{enumerate}
+
+HINT: The following are useful functions: \texttt{c} (combine/concatenate), \texttt{rep} (repeat/replicate), \texttt{rbind} (rowbind), \texttt{cbind} (column bind). Use the help files, or Google if needed to find out how they work.
+
+\hypertarget{exercise-hard-1}{%
+\section{Exercise (hard)}\label{exercise-hard-1}}
+
+These two toy examples are very small data sets, so you might argue that it would be simpler to just fix them in Excel (I wouldn't disagree). However, if these were several dozen, or even hundreds of genes, then copy-pasting is dangerous, error-prone business.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open the \href{https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/}{Google Sheets file};
+\item
+  Download the ``headache'' tab as a .csv file and read it into R;
+\item
+  Convert the file to tidy format;
+\item
+  Compare the resulting data frame with the "tidy' tab, to see if you got it right;
+\item
+  Using the internet and any other resource you like, try plotting the different gene/treatment combinations in a single plot;
+\item
+  Bonus points if you can complete this exercise without developing a headache.
+\end{enumerate}
 
 \hypertarget{MWE}{%
 \chapter{Debugging}\label{MWE}}
