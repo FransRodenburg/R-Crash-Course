@@ -6,8 +6,8 @@
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -116,7 +116,7 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
@@ -360,13 +360,25 @@ Done drawing your cake? Want a bit more explanation of how base graphics actuall
 
 The best looking cake in R, using only base R functions will be displayed here for future visitors! Your name will not be included unless you consent.
 
+\hypertarget{r-crash-course-2022}{%
+\subsection*{R Crash Course (2022)}\label{r-crash-course-2022}}
+\addcontentsline{toc}{subsection}{R Crash Course (2022)}
+
+\includegraphics[width=28in]{figures/R2022cake}
+
+Watch the discussion \href{https://youtu.be/uXfoIKguqME}{here}.
+
+Download the source code \href{files/cake-winner-R-2022.Rmd}{here}.
+
 \hypertarget{advanced-statistics-2021}{%
 \subsection*{Advanced Statistics (2021)}\label{advanced-statistics-2021}}
 \addcontentsline{toc}{subsection}{Advanced Statistics (2021)}
 
 \includegraphics[width=28in]{figures/AS2022cake}
 
-Download the source code \href{files/cake-winner-AS-2022.Rmd}{here}.
+Watch the discussion \href{https://youtu.be/ERXp51uHp2w}{here}.
+
+Download the source code \href{files/cake-winner-AS-2021.Rmd}{here}.
 
 \hypertarget{ggplot2}{%
 \chapter{\texorpdfstring{Graphics with \texttt{ggplot2}}{Graphics with ggplot2}}\label{ggplot2}}
@@ -524,10 +536,10 @@ The next step is to see how this country is called in the other data set. Again,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "United Arab Emirates"     "Uganda"                  
-## [3] "Ukraine"                  "Uzbekistan"              
-## [5] "United Kingdom"           "Virgin Islands, U.S."    
-## [7] "Uruguay"                  "United States of America"
+## [1] "United Kingdom"           "Virgin Islands, U.S."    
+## [3] "United States of America" "Uruguay"                 
+## [5] "Uganda"                   "Uzbekistan"              
+## [7] "United Arab Emirates"     "Ukraine"
 \end{verbatim}
 
 \begin{Shaded}
@@ -567,8 +579,8 @@ Here is another example:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Congo, the Democratic Republic of the"
-## [2] "Congo"
+## [1] "Congo"                                
+## [2] "Congo, the Democratic Republic of the"
 \end{verbatim}
 
 \begin{Shaded}
@@ -613,7 +625,7 @@ A standardized way to store data is by having \textbf{rows represent observation
 
 For example, take a look at the first few rows of the \texttt{iris} data set:
 
-\label{tab:unnamed-chunk-19}Tidy data. Every row is a single flower. Every column is a single variable.
+\label{tab:unnamed-chunk-20}Tidy data. Every row is a single flower. Every column is a single variable.
 
 Sepal.Length
 
@@ -690,7 +702,7 @@ setosa
 
 Sometimes it is tempting to use a different format. For example, here are the first few rows of a fictional qPCR data set performed in triplicates:
 
-\label{tab:unnamed-chunk-20}Untidy data. A single row contains three different experimental observations.
+\label{tab:unnamed-chunk-21}Untidy data. A single row contains three different experimental observations.
 
 Gene
 
