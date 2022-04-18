@@ -37,7 +37,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={R Crash Course},
-  pdfauthor={Dr.~F.J. Rodenburg   © 2020--2021 Universiteit Leiden},
+  pdfauthor={Dr.~F.J. Rodenburg   © 2021--2022 Universiteit Leiden},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -123,7 +123,7 @@
 \bibliographystyle{plainnat}
 
 \title{R Crash Course}
-\author{Dr.~F.J. Rodenburg © 2020--2021 Universiteit Leiden}
+\author{Dr.~F.J. Rodenburg © 2021--2022 Universiteit Leiden}
 \date{}
 
 \begin{document}
@@ -174,7 +174,7 @@ In the live version of this course, if time permits, we will go over some studen
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\includegraphics[width=0.20833in,height=0.20833in]{figures/underconstruction.png} This course is a work in progress. Please check back later for updates. For students at Leiden University, always consult Brightspace for the latest information on the schedule, the course material and the exam.
+\includegraphics[width=0.20833in,height=0.20833in]{figures/underconstruction.png} This course is a work in progress. Please check back later for updates.
 
 \hypertarget{installation}{%
 \chapter{\texorpdfstring{Installation \& \texttt{swirl}}{Installation \& swirl}}\label{installation}}
@@ -536,10 +536,10 @@ The next step is to see how this country is called in the other data set. Again,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "United Kingdom"           "Virgin Islands, U.S."    
-## [3] "United States of America" "Uruguay"                 
-## [5] "Uganda"                   "Uzbekistan"              
-## [7] "United Arab Emirates"     "Ukraine"
+## [1] "United Kingdom"           "United States of America"
+## [3] "Ukraine"                  "United Arab Emirates"    
+## [5] "Uruguay"                  "Uzbekistan"              
+## [7] "Virgin Islands, U.S."     "Uganda"
 \end{verbatim}
 
 \begin{Shaded}
@@ -853,14 +853,14 @@ These two toy examples are very small data sets, so you might argue that it woul
 \hypertarget{MWE}{%
 \chapter{Debugging}\label{MWE}}
 
-What do you do when your script returns a warning or error? Where do you find relevant information? How do you write a good question about programming with a minimal working example?
+What do you do when your script returns a warning or error? Where do you find relevant information? How do you write a good question about programming with a minimal reproducible example?
 
 Total video length: \ldots{} min.\\
 Exercise length: \ldots--\ldots{} min.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Getting stuck on a programming problem can be very frustrating. A minimal working example (MWE) is a script that contains \textbf{only} the necessary code and data for others to reproduce your error. If you add an MWE to your question, you are just about guaranteed to get better, and quicker answers to your coding questions.
+Getting stuck on a programming problem can be very frustrating. A minimal reproducible example (MRE) is a script that contains \textbf{only} the necessary code and data for others to reproduce your error. If you add an MRE to your question, you tend to get better, and quicker answers to your coding questions.
 
 \hypertarget{useful-information}{%
 \section{Useful information:}\label{useful-information}}
@@ -868,14 +868,16 @@ Getting stuck on a programming problem can be very frustrating. A minimal workin
 \begin{itemize}
 \tightlist
 \item
-  \texttt{dput}: Use this function save your data set into code. If someone runs this code, the output will be your data set. Try for instance \texttt{dput(iris)}.
+  \texttt{dput}: Use this function to save your data set into code. If someone runs this code, the output will be your data set. Try for instance \texttt{dput(iris)}.
 \item
   \texttt{set.seed}: Use this function before you simulate data to initialize the random number generator. Anyone who runs your code with the same seed as you will end up with exactly the same data.
 \item
   \href{http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html}{Google's (old) R style guide}.\footnote{Their new style guide focuses on the \texttt{tidyverse}. The \texttt{tidyverse} is essentially a way to make code look `cleaner', but for an absolute beginner in R, it is another layer of complexity, as you will still need to use base R code in between. Hence why it is not a part of this course.}
-\item
-  \ldots{}
 \end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\includegraphics[width=0.20833in,height=0.20833in]{figures/underconstruction.png} This chapter is a work in progress. Please check back later for updates.
 
 \hypertarget{self-test}{%
 \chapter*{Self-Test}\label{self-test}}
