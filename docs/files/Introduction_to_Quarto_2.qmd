@@ -3,7 +3,6 @@ title: "Introduction to Quarto (2 of 2)"
 author: "Dr. F.J. Rodenburg"
 format: pdf
 editor: visual
-bibliography: references.bib
 ---
 
 This file renders to PDF, using \LaTeX. This has two big advantages over Word:
