@@ -1,0 +1,311 @@
+---
+title: "Cake Winner R Crash Course 2024"
+format: docx
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+plot(NA, xlim = c(0, 10), ylim = c(0, 10), xlab = "", ylab = "", las = 1, bty = "n", axes = FALSE, main = "UNDER THE SEA")
+
+
+# Level 0
+## Horizontal lines
+lines(c(0, 10), c(0, 0))
+lines(c(0, 10), c(2, 2))
+## Vertical lines
+lines(c(0, 0), c(0, 2))
+lines(c(10, 10), c(0, 2))
+## Colour
+x <- c(0,10, 10, 0, 0)
+y <- c(0,0, 2, 2, 0)
+polygon(x, y, col = "#f0eda4", border = "black")
+
+# Number of sprinkles
+num_sprinkles <- 20
+
+# Generate random coordinates for sprinkles within the specified range
+sprinkle_x <- runif(num_sprinkles, min = 0.2, max = 9.8)
+sprinkle_y <- runif(num_sprinkles, min = 0.2, max = 1.8)
+
+# Draw random striped sprinkles
+for (i in 1:num_sprinkles) {
+  x <- sprinkle_x[i]
+  y <- sprinkle_y[i]
+  
+  # Generate random stripe length and angle
+  stripe_length <- runif(1, min = 0.1, max = 0.5)
+  stripe_angle <- runif(1, min = 0, max = 2 * pi)
+  
+  # Calculate stripe end points
+  x1 <- x - 0.5 * stripe_length * cos(stripe_angle)
+  y1 <- y - 0.5 * stripe_length * sin(stripe_angle)
+  x2 <- x + 0.5 * stripe_length * cos(stripe_angle)
+  y2 <- y + 0.5 * stripe_length * sin(stripe_angle)
+  
+  # Generate a vector of 5 random colors
+random_colors <- rgb(runif(5), runif(5), runif(5))
+  # Draw the stripe
+  segments(x1, y1, x2, y2, col = random_colors, lwd = 2)
+}
+
+# Level 1
+## Horizontal lines
+lines(c(1, 9), c(2, 2))
+lines(c(1, 9), c(4, 4))
+## Vertical lines
+lines(c(1, 1), c(2, 4))
+lines(c(9, 9), c(2, 4))
+## Colour
+x <- c(1,9, 9, 1, 1)
+y <- c(2,2,4, 4, 2)
+polygon(x, y, col = "#bff0e5", border = "black")
+
+
+
+# Level 2
+## Horizontal line
+lines(c(2, 8), c(4, 4))
+## Vertical lines
+lines(c(2,2), c(4, 6))
+lines(c(8, 8), c(4, 6))
+## Colour
+x <- c(2,8, 8, 2, 2)
+y <- c(4,4,6, 6, 4)
+polygon(x, y, col = "#88e5de", border = "black")
+
+
+# Level 3
+## Horizontal lines
+lines(c(3, 7), c(8, 8))
+## Vertical lines
+lines(c(3, 3), c(6, 8))
+lines(c(7, 7), c(6, 8))
+## Colour
+x <- c(3,7, 7, 3, 3)
+y <- c(6,6,8, 8, 6)
+polygon(x, y, col = "#75b4ee", border = "black")
+
+# Level 4
+## Horizontal lines
+lines(c(4, 6), c(9, 9))
+## Vertical lines
+lines(c(4, 4), c(8, 9))
+lines(c(6, 6), c(8, 9))
+## Colour
+x <- c(4,6, 6, 4, 4)
+y <- c(8,8,9,9,8)
+polygon(x, y, col = "#7a82e5", border = "black")
+
+
+# Candles
+## number of candles
+num_lines <- 5
+interval <- 0.4
+##colour of sticks
+for (i in 1:num_lines) {
+  center_x <- 3.8
+  offset <- (i - 0.2) * interval
+  
+  x <- c(center_x + offset, center_x + offset + 0.1, center_x + offset + 0.1, center_x + offset, center_x + offset)
+  y <- c(9, 9, 9.5, 9.5, 9)
+  polygon(x, y, col = "#8ec4a8", border = "grey")}
+
+#FLAMES
+
+## NUMBER 1
+draw_diamond <- function(x_center, y_center, width, height) {
+
+  # Define the coordinates for the diamond shape
+  x <- c(x_center, x_center + width/2, x_center, x_center - width/2, x_center)
+  y <- c(y_center - height/2, y_center, y_center + height/2, y_center, y_center - height/2)
+
+  # Draw the diamond shape
+  polygon(x, y, col = "orange", border = "red")
+}
+
+# Adjust dimensions and starting position for the diamond
+draw_diamond(x_center = 4.15, y_center = 9.8, width = 0.15, height = 0.3)
+
+## NUMBER 2
+
+draw_diamond <- function(x_center, y_center, width, height) {
+
+  # Define the coordinates for the diamond shape
+  x <- c(x_center, x_center + width/2, x_center, x_center - width/2, x_center)
+  y <- c(y_center - height/2, y_center, y_center + height/2, y_center, y_center - height/2)
+
+  # Draw the diamond shape
+  polygon(x, y, col = "orange", border = "red")
+}
+
+# Adjust dimensions and starting position for the diamond
+draw_diamond(x_center = 4.55, y_center = 9.8, width = 0.15, height = 0.3)
+
+## NUMBER 3
+draw_diamond <- function(x_center, y_center, width, height) {
+
+  # Define the coordinates for the diamond shape
+  x <- c(x_center, x_center + width/2, x_center, x_center - width/2, x_center)
+  y <- c(y_center - height/2, y_center, y_center + height/2, y_center, y_center - height/2)
+
+  # Draw the diamond shape
+  polygon(x, y, col = "orange", border = "red")
+}
+
+# Adjust dimensions and starting position for the diamond
+draw_diamond(x_center = 4.95, y_center = 9.8, width = 0.15, height = 0.3)
+
+## NUMBER 4
+draw_diamond <- function(x_center, y_center, width, height) {
+
+  # Define the coordinates for the diamond shape
+  x <- c(x_center, x_center + width/2, x_center, x_center - width/2, x_center)
+  y <- c(y_center - height/2, y_center, y_center + height/2, y_center, y_center - height/2)
+
+  # Draw the diamond shape
+  polygon(x, y, col = "orange", border = "red")
+}
+
+# Adjust dimensions and starting position for the diamond
+draw_diamond(x_center = 5.35, y_center = 9.8, width = 0.15, height = 0.3)
+
+## NUMBER 5
+draw_diamond <- function(x_center, y_center, width, height) {
+
+  # Define the coordinates for the diamond shape
+  x <- c(x_center, x_center + width/2, x_center, x_center - width/2, x_center)
+  y <- c(y_center - height/2, y_center, y_center + height/2, y_center, y_center - height/2)
+
+  # Draw the diamond shape
+  polygon(x, y, col = "orange", border = "red")
+}
+
+# Adjust dimensions and starting position for the diamond
+draw_diamond(x_center = 5.75, y_center = 9.8, width = 0.15, height = 0.3)
+
+
+#SHELL
+
+##layer1
+###number1
+draw_seashell <- function(x_center, y_center, size){
+  # Define the coordinates for the seashell shape
+  x <- c(x_center, x_center + 0.2*size, x_center + 0.5*size, x_center + 0.2*size, x_center - 0.2*size, x_center - 0.5*size, x_center - 0.2*size, x_center)
+  y <- c(y_center, y_center + 0.8*size, y_center + 0.5*size, y_center + 0.2*size, y_center + 0.2*size, y_center + 0.5*size, y_center + 0.8*size, y_center)
+
+  # Draw the seashell shape
+  polygon(x, y, col = "#8ec4a8", border = "darkred")
+}
+
+# Adjust dimensions and starting position for the seashell
+draw_seashell(x_center = 2.5, y_center = 2.2, size = 2)
+
+###number 2
+draw_seashell <- function(x_center, y_center, size){
+  # Define the coordinates for the seashell shape
+  x <- c(x_center, x_center + 0.2*size, x_center + 0.5*size, x_center + 0.2*size, x_center - 0.2*size, x_center - 0.5*size, x_center - 0.2*size, x_center)
+  y <- c(y_center, y_center + 0.8*size, y_center + 0.5*size, y_center + 0.2*size, y_center + 0.2*size, y_center + 0.5*size, y_center + 0.8*size, y_center)
+
+  # Draw the seashell shape
+  polygon(x, y, col = "#8ec4a8", border = "darkred")
+}
+
+# Adjust dimensions and starting position for the seashell
+draw_seashell(x_center = 5, y_center = 2.2, size = 2)
+
+##number3
+draw_seashell <- function(x_center, y_center, size){
+  # Define the coordinates for the seashell shape
+  x <- c(x_center, x_center + 0.2*size, x_center + 0.5*size, x_center + 0.2*size, x_center - 0.2*size, x_center - 0.5*size, x_center - 0.2*size, x_center)
+  y <- c(y_center, y_center + 0.8*size, y_center + 0.5*size, y_center + 0.2*size, y_center + 0.2*size, y_center + 0.5*size, y_center + 0.8*size, y_center)
+
+  # Draw the seashell shape
+  polygon(x, y, col = "#8ec4a8", border = "darkred")
+}
+
+# Adjust dimensions and starting position for the seashell
+draw_seashell(x_center = 7.5, y_center = 2.2, size = 2)
+
+##layer 3
+
+draw_seashell <- function(x_center, y_center, size){
+  # Define the coordinates for the seashell shape
+  x <- c(x_center, x_center + 0.2*size, x_center + 0.5*size, x_center + 0.2*size, x_center - 0.2*size, x_center - 0.5*size, x_center - 0.2*size, x_center)
+  y <- c(y_center, y_center + 0.8*size, y_center + 0.5*size, y_center + 0.2*size, y_center + 0.2*size, y_center + 0.5*size, y_center + 0.8*size, y_center)
+
+  # Draw the seashell shape
+  polygon(x, y, col = "lightpink", border = "darkred")
+}
+
+# Adjust dimensions and starting position for the seashell
+draw_seashell(x_center = 5, y_center = 6.2, size = 2)
+
+#fish1
+# Body of the fish (oval)
+symbols(x = 3.5, y = 5, circles = 1, inches = 0.5, add = TRUE, bg = "orange", lwd = 1.5)
+
+# Tail of the fish (triangle)
+polygon(c(4, 4.7, 4.7), c(5, 4.5, 5.5), col = "orange", border = "black", lwd = 1.5)
+
+# Eye of the fish (circle)
+symbols(x = 3, y = 5.2, circles = 1, inches = 0.05, add = TRUE, bg = "black")
+
+#fish2
+# Body of the fish (oval)
+symbols(x = 6.5, y = 5, circles = 1, inches = 0.5, add = TRUE, bg = "orange", lwd = 1.5)
+
+# Tail of the fish (triangle)
+polygon(c(7, 7.7, 7.7), c(5, 4.5, 5.5), col = "orange", border = "black", lwd = 1.5)
+
+# Eye of the fish (circle)
+symbols(x = 6, y = 5.2, circles = 1, inches = 0.05, add = TRUE, bg = "black")
+
+
+
+# Define coordinates for the star
+theta <- seq(0, 2 * pi, length.out = 11)
+radius <- c(1, 0.3, 1, 0.3, 1, 0.3, 1, 0.3, 1, 0.3, 1)
+
+# Convert polar coordinates to Cartesian coordinates
+x <- 2 + radius * cos(theta)
+y <- 1 + radius * sin(theta)
+
+# Draw the star shape
+polygon(x, y, col = "lightpink", border = "black")
+
+# Define coordinates for the star
+theta <- seq(0, 2 * pi, length.out = 11)
+radius <- c(1, 0.3, 1, 0.3, 1, 0.3, 1, 0.3, 1, 0.3, 1)
+
+# Convert polar coordinates to Cartesian coordinates
+x <- 4+ radius * cos(theta)
+y <- 1 + radius * sin(theta)
+
+# Draw the star shape
+polygon(x, y, col = "lightpink", border = "black")
+
+# Convert polar coordinates to Cartesian coordinates
+x <- 6 + radius * cos(theta)
+y <- 1 + radius * sin(theta)
+
+# Draw the star shape
+polygon(x, y, col = "lightpink", border = "black")
+
+# Convert polar coordinates to Cartesian coordinates
+x <- 8 + radius * cos(theta)
+y <- 1 + radius * sin(theta)
+
+# Draw the star shape
+polygon(x, y, col = "lightpink", border = "black")
+
+##bubbles level 2 
+symbols(x = 5.5, y = 5.5, circles = 1, inches = 0.1, add = TRUE, bg = "skyblue", lwd = 1)
+symbols(x = 5, y = 5.7, circles = 1, inches = 0.08, add = TRUE, bg = "skyblue", lwd = 1)
+symbols(x = 2.5, y = 5.5, circles = 1, inches = 0.1, add = TRUE, bg = "skyblue", lwd = 1)
+symbols(x = 2.17, y = 5.7, circles = 1, inches = 0.08, add = TRUE, bg = "skyblue", lwd = 1)
+
+
+
+```

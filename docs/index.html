@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>R Crash Course</title>
   <meta name="description" content="R Crash Course" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="R Crash Course" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,7 +20,7 @@
   
   
 
-<meta name="author" content="Dr. F.J. Rodenburg   © 2021–2022 Universiteit Leiden" />
+<meta name="author" content="Dr. F.J. Rodenburg   © 2021–2024 Universiteit Leiden" />
 
 
 
@@ -32,7 +31,6 @@
   
 
 <link rel="next" href="installation.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -92,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,6 +158,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="base-graphics.html"><a href="base-graphics.html#exercise-swirl"><i class="fa fa-check"></i><b>2.4</b> Exercise (<code>swirl</code>)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#hall-of-fame"><i class="fa fa-check"></i>Hall of Fame</a>
 <ul>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#r-crash-course-2024"><i class="fa fa-check"></i>R Crash Course (2024)</a></li>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#basic-statistics-2023"><i class="fa fa-check"></i>Basic Statistics (2023)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#r-crash-course-2022"><i class="fa fa-check"></i>R Crash Course (2022)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#advanced-statistics-2021"><i class="fa fa-check"></i>Advanced Statistics (2021)</a></li>
 </ul></li>
@@ -198,17 +203,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">R Crash Course</h1>
-<p class="author"><em>Dr. F.J. Rodenburg <br> © 2021–2022 Universiteit Leiden</em></p>
+<p class="author"><em>Dr. F.J. Rodenburg <br> © 2021–2024 Universiteit Leiden</em></p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<script type="text/javascript">
+<div id="introduction" class="section level1 unnumbered hasAnchor">
+<h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
 title=document.getElementById('header');
 title.innerHTML = '<img src="figures/logo.png" alt="IBL logo">' + title.innerHTML
 </script>
 <p>This one-week course will improve your programming to the level required to pass <a href="https://fransrodenburg.github.io/General-Research-Skills/">General Research Skills</a>. Each day consists of about half an hour of explanation and 1–2 hours of assignments.</p>
-<div id="structure-of-this-course" class="section level2 unnumbered">
-<h2>Structure of This Course</h2>
+<div id="structure-of-this-course" class="section level2 unnumbered hasAnchor">
+<h2>Structure of This Course<a href="index.html#structure-of-this-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><a href="installation.html#installation">Installation and <code>swirl</code></a></li>
 <li><a href="base-graphics.html#base-graphics">Base graphics using <code>plot</code></a></li>
@@ -220,8 +225,8 @@ title.innerHTML = '<img src="figures/logo.png" alt="IBL logo">' + title.innerHTM
 <p>Hence, every day after the first, we will begin with an example of something useful you can do in R. I will explain how it works and then it is your job to edit the code provided and make it do something else. In the beginning that may feel a lot like you are just copy-pasting the example. But the more you practice, the more you will feel comfortable actually changing code. At some point, you may even know a fair few functions by heart, but even if you don’t, always keep in mind: It is perfectly fine to search online.</p>
 <p>Learning a programming language is similar to learning any other language: You could learn long lists of words and endless rules about grammar (as is unfortunately how language is usually taught in school), but this will never make you fluent in a language, let alone in one week. To speak the language, it is <em>much</em> more efficient to start by learning some useful phrases and building your knowledge from there. The same goes with programming in R: If you know how to make a certain figure, then who cares that you don’t know exactly how it works, or what exactly happens under the hood? If you are able to adjust the code to work with new data, then you can make that figure for any data set!</p>
 </div>
-<div id="examination" class="section level2 unnumbered">
-<h2>Examination</h2>
+<div id="examination" class="section level2 unnumbered hasAnchor">
+<h2>Examination<a href="index.html#examination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This course has no credits, exam or grade. However, during Of course, the things you pick up during this course can be used during the graded assignment of <a href="https://fransrodenburg.github.io/General-Research-Skills/">General Research Skills</a>, which is also in R.</p>
 <p>In the live version of this course, if time permits, we will go over some student solutions at the end of each day and discuss what works, what doesn’t and why.</p>
 <hr />
@@ -296,7 +301,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

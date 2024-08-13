@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Day 4 Reading &amp; Manipulating Data | R Crash Course</title>
   <meta name="description" content="Day 4 Reading &amp; Manipulating Data | R Crash Course" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Day 4 Reading &amp; Manipulating Data | R Crash Course" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,7 +20,7 @@
   
   
 
-<meta name="author" content="Dr. F.J. Rodenburg   © 2021–2022 Universiteit Leiden" />
+<meta name="author" content="Dr. F.J. Rodenburg   © 2021–2024 Universiteit Leiden" />
 
 
 
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ggplot2.html"/>
 <link rel="next" href="MWE.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -92,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,6 +158,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="base-graphics.html"><a href="base-graphics.html#exercise-swirl"><i class="fa fa-check"></i><b>2.4</b> Exercise (<code>swirl</code>)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#hall-of-fame"><i class="fa fa-check"></i>Hall of Fame</a>
 <ul>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#r-crash-course-2024"><i class="fa fa-check"></i>R Crash Course (2024)</a></li>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#basic-statistics-2023"><i class="fa fa-check"></i>Basic Statistics (2023)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#r-crash-course-2022"><i class="fa fa-check"></i>R Crash Course (2022)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#advanced-statistics-2021"><i class="fa fa-check"></i>Advanced Statistics (2021)</a></li>
 </ul></li>
@@ -196,25 +201,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">Day 4</span> Reading &amp; Manipulating Data</h1>
+<div id="data-manipulation" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Day 4</span> Reading &amp; Manipulating Data<a href="data-manipulation.html#data-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><small><i>An introduction to storing and converting data using the tidy format.</p>
 <p>Total video length: 4 min.<br />
 Exercise length: 30–90 min.</i></small></p>
 <hr />
-<div id="reading-data" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Reading Data</h2>
+<div id="reading-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Reading Data<a href="data-manipulation.html#reading-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are many ways to read data into R. A simple method is explained in the video below:</p>
 <iframe src="https://www.youtube.com/embed/BGUqZc-Pb8w" width="672" height="400px" data-external="1">
 </iframe>
 </div>
-<div id="what-is-tidy-data" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> What Is Tidy Data?</h2>
+<div id="what-is-tidy-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> What Is Tidy Data?<a href="data-manipulation.html#what-is-tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A standardized way to store data is by having <strong>rows represent observations</strong> and <strong>columns represent variables</strong>.</p>
 <p>For example, take a look at the first few rows of the <code>iris</code> data set:</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-20">Table 4.1: </span>Tidy data. Every row is a single flower. Every column is a single variable.
+<span id="tab:unnamed-chunk-22">Table 4.1: </span>Tidy data. Every row is a single flower. Every column is a single variable.
 </caption>
 <thead>
 <tr>
@@ -341,12 +346,12 @@ setosa
 </tbody>
 </table>
 </div>
-<div id="what-is-untidy-data" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> What Is Untidy Data?</h2>
+<div id="what-is-untidy-data" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> What Is Untidy Data?<a href="data-manipulation.html#what-is-untidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sometimes it is tempting to use a different format. For example, here are the first few rows of a fictional qPCR data set performed in triplicates:</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-21">Table 4.2: </span>Untidy data. A single row contains three different experimental observations.
+<span id="tab:unnamed-chunk-23">Table 4.2: </span>Untidy data. A single row contains three different experimental observations.
 </caption>
 <thead>
 <tr>
@@ -475,8 +480,8 @@ ADH-/-
 <p>This may look like a more intuitive way to store your data, but most statistical software will not know what to do with it. Every row should contain a single gene’s C<span class="math inline">\(_t\)</span>-value from a single replicate. You can view the correct way to store it <a href="https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/">here</a>.</p>
 <p>Storing data in tidy format will greatly simplify analysis and almost everything we use in the <a href="https://fransrodenburg.github.io/General-Research-Skills/">GRS course</a> expects data to be in this format.</p>
 </div>
-<div id="exercise-easy-1" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Exercise (easy)</h2>
+<div id="exercise-easy-1" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Exercise (easy)<a href="data-manipulation.html#exercise-easy-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Watch the <a href="https://youtu.be/BGUqZc-Pb8w">video</a> on how to read data in R;</li>
 <li>Download <a href="data/humanheight.xlsx">this Excel file</a>;</li>
@@ -490,8 +495,8 @@ ADH-/-
 </ol>
 <p><small>HINT: The following are useful functions you might use for this: <code>c</code> (combine/concatenate), <code>rep</code> (repeat/replicate), <code>rbind</code> (rowbind), <code>cbind</code> (column bind). Use the help files, or Google if needed to find out how they work.</small></p>
 </div>
-<div id="exercise-medium-1" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Exercise (medium)</h2>
+<div id="exercise-medium-1" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Exercise (medium)<a href="data-manipulation.html#exercise-medium-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following <a href="https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/">Google Sheets file</a> contains shows three versions of the same data set. The tab “tidy” is how I wish people sent me data. The tab “untidy” is what students often send me after at least trying to put it in the right format. The tab “headache” is closer to what people send me for consultancy.</p>
 <ol style="list-style-type: decimal">
 <li>Open the <a href="https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/">Google Sheets file</a>;</li>
@@ -501,8 +506,8 @@ ADH-/-
 </ol>
 <p><small>HINT: The following are useful functions: <code>c</code> (combine/concatenate), <code>rep</code> (repeat/replicate), <code>rbind</code> (rowbind), <code>cbind</code> (column bind). Use the help files, or Google if needed to find out how they work.</small></p>
 </div>
-<div id="exercise-hard-1" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Exercise (hard)</h2>
+<div id="exercise-hard-1" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Exercise (hard)<a href="data-manipulation.html#exercise-hard-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These two toy examples are very small data sets, so you might argue that it would be simpler to just fix them in Excel (I wouldn’t disagree). However, if these were several dozen, or even hundreds of genes, then copy-pasting is dangerous, error-prone business.</p>
 <ol style="list-style-type: decimal">
 <li>Open the <a href="https://docs.google.com/spreadsheets/d/1zBw0JX1JqALqF7m1CLQp4ojd1LUDoYHxnc6xIUYQVYY/">Google Sheets file</a>;</li>
@@ -582,7 +587,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

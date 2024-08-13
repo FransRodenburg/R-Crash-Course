@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Day 2 Base Graphics | R Crash Course</title>
   <meta name="description" content="Day 2 Base Graphics | R Crash Course" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Day 2 Base Graphics | R Crash Course" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,7 +20,7 @@
   
   
 
-<meta name="author" content="Dr. F.J. Rodenburg   © 2021–2022 Universiteit Leiden" />
+<meta name="author" content="Dr. F.J. Rodenburg   © 2021–2024 Universiteit Leiden" />
 
 
 
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="installation.html"/>
 <link rel="next" href="ggplot2.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -92,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,6 +158,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="base-graphics.html"><a href="base-graphics.html#exercise-swirl"><i class="fa fa-check"></i><b>2.4</b> Exercise (<code>swirl</code>)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#hall-of-fame"><i class="fa fa-check"></i>Hall of Fame</a>
 <ul>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#r-crash-course-2024"><i class="fa fa-check"></i>R Crash Course (2024)</a></li>
+<li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#basic-statistics-2023"><i class="fa fa-check"></i>Basic Statistics (2023)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#r-crash-course-2022"><i class="fa fa-check"></i>R Crash Course (2022)</a></li>
 <li class="chapter" data-level="" data-path="base-graphics.html"><a href="base-graphics.html#advanced-statistics-2021"><i class="fa fa-check"></i>Advanced Statistics (2021)</a></li>
 </ul></li>
@@ -196,47 +201,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="base-graphics" class="section level1" number="2">
-<h1><span class="header-section-number">Day 2</span> Base Graphics</h1>
+<div id="base-graphics" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Day 2</span> Base Graphics<a href="base-graphics.html#base-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><small><i><b>Producing figures</b> using the built-in functions in R.</p>
 <p>Total video length: 9 min.<br />
 Exercise length: 30–60 min.</i></small></p>
 <hr />
 <p>An easy way to see how R works is by making plots.</p>
-<div id="exercise-easy" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Exercise (easy)</h2>
+<div id="exercise-easy" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Exercise (easy)<a href="base-graphics.html#exercise-easy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Today is almost certainly someone’s birthday. Let’s make them a cake!</p>
 <p>Below is an example of a simple drawing in base R:</p>
 <p><small></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="base-graphics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NA</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb2-2"><a href="base-graphics.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="base-graphics.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Level 1</span></span>
-<span id="cb2-4"><a href="base-graphics.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Horizontal lines</span></span>
-<span id="cb2-5"><a href="base-graphics.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-6"><a href="base-graphics.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
-<span id="cb2-7"><a href="base-graphics.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Vertical lines</span></span>
-<span id="cb2-8"><a href="base-graphics.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb2-9"><a href="base-graphics.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">9</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb2-10"><a href="base-graphics.html#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="base-graphics.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Level 2</span></span>
-<span id="cb2-12"><a href="base-graphics.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Horizontal line</span></span>
-<span id="cb2-13"><a href="base-graphics.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">8</span>), <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb2-14"><a href="base-graphics.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Vertical lines</span></span>
-<span id="cb2-15"><a href="base-graphics.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb2-16"><a href="base-graphics.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">8</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb2-17"><a href="base-graphics.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="base-graphics.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Level 3</span></span>
-<span id="cb2-19"><a href="base-graphics.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Horizontal lines</span></span>
-<span id="cb2-20"><a href="base-graphics.html#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>), <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
-<span id="cb2-21"><a href="base-graphics.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Vertical lines</span></span>
-<span id="cb2-22"><a href="base-graphics.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>))</span>
-<span id="cb2-23"><a href="base-graphics.html#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>), <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>))</span>
-<span id="cb2-24"><a href="base-graphics.html#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="base-graphics.html#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Candles</span></span>
-<span id="cb2-26"><a href="base-graphics.html#cb2-26" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">3</span>                             <span class="co"># number of candles</span></span>
-<span id="cb2-27"><a href="base-graphics.html#cb2-27" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">3.5</span>, <span class="fl">6.5</span>, <span class="at">length.out =</span> k) <span class="co"># position of the candles</span></span>
-<span id="cb2-28"><a href="base-graphics.html#cb2-28" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">0.7</span>                           <span class="co"># height of the candles</span></span>
-<span id="cb2-29"><a href="base-graphics.html#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="at">x0 =</span> x, <span class="at">x1 =</span> x, <span class="at">y0 =</span> <span class="fu">rep</span>(<span class="dv">7</span>, k), <span class="at">y1 =</span> <span class="fu">rep</span>(<span class="dv">7</span> <span class="sc">+</span> h, k), <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="base-graphics.html#cb2-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NA</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb2-2"><a href="base-graphics.html#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="base-graphics.html#cb2-3" tabindex="-1"></a><span class="co"># Level 1</span></span>
+<span id="cb2-4"><a href="base-graphics.html#cb2-4" tabindex="-1"></a><span class="do">## Horizontal lines</span></span>
+<span id="cb2-5"><a href="base-graphics.html#cb2-5" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb2-6"><a href="base-graphics.html#cb2-6" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb2-7"><a href="base-graphics.html#cb2-7" tabindex="-1"></a><span class="do">## Vertical lines</span></span>
+<span id="cb2-8"><a href="base-graphics.html#cb2-8" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb2-9"><a href="base-graphics.html#cb2-9" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">9</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb2-10"><a href="base-graphics.html#cb2-10" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="base-graphics.html#cb2-11" tabindex="-1"></a><span class="co"># Level 2</span></span>
+<span id="cb2-12"><a href="base-graphics.html#cb2-12" tabindex="-1"></a><span class="do">## Horizontal line</span></span>
+<span id="cb2-13"><a href="base-graphics.html#cb2-13" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">8</span>), <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb2-14"><a href="base-graphics.html#cb2-14" tabindex="-1"></a><span class="do">## Vertical lines</span></span>
+<span id="cb2-15"><a href="base-graphics.html#cb2-15" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb2-16"><a href="base-graphics.html#cb2-16" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">8</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb2-17"><a href="base-graphics.html#cb2-17" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="base-graphics.html#cb2-18" tabindex="-1"></a><span class="co"># Level 3</span></span>
+<span id="cb2-19"><a href="base-graphics.html#cb2-19" tabindex="-1"></a><span class="do">## Horizontal lines</span></span>
+<span id="cb2-20"><a href="base-graphics.html#cb2-20" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>), <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb2-21"><a href="base-graphics.html#cb2-21" tabindex="-1"></a><span class="do">## Vertical lines</span></span>
+<span id="cb2-22"><a href="base-graphics.html#cb2-22" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>))</span>
+<span id="cb2-23"><a href="base-graphics.html#cb2-23" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>), <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>))</span>
+<span id="cb2-24"><a href="base-graphics.html#cb2-24" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="base-graphics.html#cb2-25" tabindex="-1"></a><span class="co"># Candles</span></span>
+<span id="cb2-26"><a href="base-graphics.html#cb2-26" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">3</span>                             <span class="co"># number of candles</span></span>
+<span id="cb2-27"><a href="base-graphics.html#cb2-27" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">3.5</span>, <span class="fl">6.5</span>, <span class="at">length.out =</span> k) <span class="co"># position of the candles</span></span>
+<span id="cb2-28"><a href="base-graphics.html#cb2-28" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">0.7</span>                           <span class="co"># height of the candles</span></span>
+<span id="cb2-29"><a href="base-graphics.html#cb2-29" tabindex="-1"></a><span class="fu">segments</span>(<span class="at">x0 =</span> x, <span class="at">x1 =</span> x, <span class="at">y0 =</span> <span class="fu">rep</span>(<span class="dv">7</span>, k), <span class="at">y1 =</span> <span class="fu">rep</span>(<span class="dv">7</span> <span class="sc">+</span> h, k), <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="figures/cake.png" width="1008" /></p>
 <p></small></p>
 <ol style="list-style-type: decimal">
@@ -245,14 +250,14 @@ Exercise length: 30–60 min.</i></small></p>
 <li>To see which line does what, run each line from top to bottom by clicking anywhere in the first line of code and pressing CTRL+Enter (Windows) or Command+Enter (MacOS). If this does not work, check the following:
 <ul>
 <li>Do you have <a href="https://youtu.be/AHAR7j-IUOw?t=110">inline output disabled</a>? Inline output may look convenient, but it usually causes more problems than it solves.</li>
-<li>Did you run the code in order?<a href="references.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>Did you run the code in order?<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
 </ul></li>
 <li>Now that you have seen what each line does, change the script to render 5 candles instead of 3.</li>
 <li>Can you change the code to add a layer to the cake? <small><em>(You may have to make the other layers smaller, or move the candles up.)</em></small></li>
 </ol>
 </div>
-<div id="exercise-medium" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Exercise (medium)</h2>
+<div id="exercise-medium" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Exercise (medium)<a href="base-graphics.html#exercise-medium" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is a video on how to read help files as a starting point for this part:</p>
 <iframe src="https://www.youtube.com/embed/nTvdC91EyDI" width="672" height="400px" data-external="1">
 </iframe>
@@ -262,8 +267,8 @@ Exercise length: 30–60 min.</i></small></p>
 <li>Now that everything is in place, let’s add the title “Happy Birthday” and hide the axes. It is up to you to find out how, using whatever resource you want.</li>
 </ol>
 </div>
-<div id="exercise-hard" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Exercise (hard)</h2>
+<div id="exercise-hard" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Exercise (hard)<a href="base-graphics.html#exercise-hard" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now let’s add sprinkling to the cake. We could tell R exactly where to draw the sprinkling, but nobody sprinkles like that. So let’s make it a bit more realistic:</p>
 <ol style="list-style-type: decimal">
 <li>Use the function <code>runif</code> to randomly draw <span class="math inline">\(x\)</span>-positions for the candles from a uniform distribution. Look up how to use the function by entering <code>?runif</code> in the console, or by searching online.</li>
@@ -271,27 +276,43 @@ Exercise length: 30–60 min.</i></small></p>
 <li>If you have time left, personalize your cake with base R functions however you see fit!</li>
 </ol>
 </div>
-<div id="exercise-swirl" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Exercise (<code>swirl</code>)</h2>
+<div id="exercise-swirl" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Exercise (<code>swirl</code>)<a href="base-graphics.html#exercise-swirl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Done drawing your cake? Want a bit more explanation of how base graphics actually work? Complete the <a href="https://youtu.be/eKKil5iyxLM?t=148"><code>swirl</code> R Programming</a> course, chapter 15.</p>
 </div>
-<div id="hall-of-fame" class="section level2 unnumbered">
-<h2>Hall of Fame</h2>
+<div id="hall-of-fame" class="section level2 unnumbered hasAnchor">
+<h2>Hall of Fame<a href="base-graphics.html#hall-of-fame" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The best looking cake in R, using only base R functions will be displayed here for future visitors! <small><i>Your name will not be included unless you consent.</i></small></p>
-<div id="r-crash-course-2022" class="section level3 unnumbered">
-<h3>R Crash Course (2022)</h3>
+<div id="r-crash-course-2024" class="section level3 unnumbered hasAnchor">
+<h3>R Crash Course (2024)<a href="base-graphics.html#r-crash-course-2024" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/R2024cake.png" width="1008" /></p>
+<p>Download the source code <a href="files/cake-winner-R-2024.qmd">here</a>.</p>
+</div>
+<div id="basic-statistics-2023" class="section level3 unnumbered hasAnchor">
+<h3>Basic Statistics (2023)<a href="base-graphics.html#basic-statistics-2023" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/BSM2023cake.png" width="1008" /></p>
+<p>Download the source code <a href="files/cake-winner-BSM-2023.R">here</a>.</p>
+</div>
+<div id="r-crash-course-2022" class="section level3 unnumbered hasAnchor">
+<h3>R Crash Course (2022)<a href="base-graphics.html#r-crash-course-2022" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="figures/R2022cake.png" width="1008" /></p>
 <p>Watch the discussion <a href="https://youtu.be/uXfoIKguqME">here</a>.</p>
 <p>Download the source code <a href="files/cake-winner-R-2022.Rmd">here</a>.</p>
 </div>
-<div id="advanced-statistics-2021" class="section level3 unnumbered">
-<h3>Advanced Statistics (2021)</h3>
+<div id="advanced-statistics-2021" class="section level3 unnumbered hasAnchor">
+<h3>Advanced Statistics (2021)<a href="base-graphics.html#advanced-statistics-2021" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="figures/AS2022cake.png" width="1008" /></p>
 <p>Watch the discussion <a href="https://youtu.be/ERXp51uHp2w">here</a>.</p>
 <p>Download the source code <a href="files/cake-winner-AS-2021.Rmd">here</a>.</p>
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><small>The function <code>lines</code> adds a line to an existing plot. This is only possible if you run <code>plot</code> first, so run the code in order, from top to bottom.</small><a href="base-graphics.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -360,7 +381,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

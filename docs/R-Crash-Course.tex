@@ -5,16 +5,19 @@
 \documentclass[
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -33,14 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={R Crash Course},
-  pdfauthor={Dr.~F.J. Rodenburg   © 2021--2022 Universiteit Leiden},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -52,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -66,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -75,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -121,9 +116,17 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={R Crash Course},
+  pdfauthor={Dr.~F.J. Rodenburg   © 2021--2024 Universiteit Leiden},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{R Crash Course}
-\author{Dr.~F.J. Rodenburg © 2021--2022 Universiteit Leiden}
+\author{Dr.~F.J. Rodenburg © 2021--2024 Universiteit Leiden}
 \date{}
 
 \begin{document}
@@ -181,7 +184,7 @@ In the live version of this course, if time permits, we will go over some studen
 
 The goal for this day is to install and setup RStudio and to verify your installation is working correctly.
 
-Total video length: 20 min.\\
+Total video length: 17 min.\\
 Exercise length: 30--90 min.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -192,10 +195,6 @@ In order for you not to get stuck on errors, it is vital that RStudio is install
 \section{Installation Guide}\label{installation-guide}}
 
 Watch the video below and install RStudio:
-
-\begin{verbatim}
-## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-\end{verbatim}
 
 Note: TinyTeX is not required for this course. All you need is a working version of RStudio, and to be able to knit to HTML.
 
@@ -360,6 +359,22 @@ Done drawing your cake? Want a bit more explanation of how base graphics actuall
 
 The best looking cake in R, using only base R functions will be displayed here for future visitors! Your name will not be included unless you consent.
 
+\hypertarget{r-crash-course-2024}{%
+\subsection*{R Crash Course (2024)}\label{r-crash-course-2024}}
+\addcontentsline{toc}{subsection}{R Crash Course (2024)}
+
+\includegraphics[width=28in]{figures/R2024cake}
+
+Download the source code \href{files/cake-winner-R-2024.qmd}{here}.
+
+\hypertarget{basic-statistics-2023}{%
+\subsection*{Basic Statistics (2023)}\label{basic-statistics-2023}}
+\addcontentsline{toc}{subsection}{Basic Statistics (2023)}
+
+\includegraphics[width=28in]{figures/BSM2023cake}
+
+Download the source code \href{files/cake-winner-BSM-2023.R}{here}.
+
 \hypertarget{r-crash-course-2022}{%
 \subsection*{R Crash Course (2022)}\label{r-crash-course-2022}}
 \addcontentsline{toc}{subsection}{R Crash Course (2022)}
@@ -385,7 +400,6 @@ Download the source code \href{files/cake-winner-AS-2021.Rmd}{here}.
 
 A demonstration of one of the many specialized plotting routines offered by \texttt{ggplot2}.
 
-Total video length: \ldots{} min.\\
 Exercise length: 30--90 min.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -536,10 +550,10 @@ The next step is to see how this country is called in the other data set. Again,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "United Kingdom"           "United States of America"
-## [3] "Ukraine"                  "United Arab Emirates"    
-## [5] "Uruguay"                  "Uzbekistan"              
-## [7] "Virgin Islands, U.S."     "Uganda"
+## [1] "United Arab Emirates"     "Virgin Islands, U.S."    
+## [3] "Uganda"                   "United Kingdom"          
+## [5] "Uruguay"                  "United States of America"
+## [7] "Ukraine"                  "Uzbekistan"
 \end{verbatim}
 
 \begin{Shaded}
@@ -550,11 +564,11 @@ The next step is to see how this country is called in the other data set. Again,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "United Arab Emirates"         "United Kingdom"              
-## [3] "United Republic of Tanzania"  "Uganda"                      
-## [5] "Ukraine"                      "Uruguay"                     
-## [7] "United States of America"     "Uzbekistan"                  
-## [9] "United States Virgin Islands"
+## [1] "Uzbekistan"                   "Uruguay"                     
+## [3] "United States Virgin Islands" "United States of America"    
+## [5] "United Kingdom"               "United Arab Emirates"        
+## [7] "Ukraine"                      "Uganda"                      
+## [9] "United Republic of Tanzania"
 \end{verbatim}
 
 Here we see the problem: In the COVID-19 data set, the US is called \texttt{"United\ States"}, whereas in the \texttt{Earth} data set it is called \texttt{"United\ States\ of\ America"}.
@@ -591,7 +605,7 @@ Here is another example:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Democratic Republic of the Congo" "Republic of Congo"
+## [1] "Democratic Republic of the Congo" "Republic of the Congo"
 \end{verbatim}
 
 \begin{enumerate}
@@ -625,7 +639,7 @@ A standardized way to store data is by having \textbf{rows represent observation
 
 For example, take a look at the first few rows of the \texttt{iris} data set:
 
-\label{tab:unnamed-chunk-20}Tidy data. Every row is a single flower. Every column is a single variable.
+\label{tab:unnamed-chunk-22}Tidy data. Every row is a single flower. Every column is a single variable.
 
 Sepal.Length
 
@@ -702,7 +716,7 @@ setosa
 
 Sometimes it is tempting to use a different format. For example, here are the first few rows of a fictional qPCR data set performed in triplicates:
 
-\label{tab:unnamed-chunk-21}Untidy data. A single row contains three different experimental observations.
+\label{tab:unnamed-chunk-23}Untidy data. A single row contains three different experimental observations.
 
 Gene
 
