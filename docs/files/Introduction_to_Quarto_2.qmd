@@ -1,0 +1,86 @@
+---
+title: "Introduction to Quarto (2 of 2)"
+author: "Dr. F.J. Rodenburg"
+format: pdf
+editor: visual
+bibliography: references.bib
+---
+
+This file renders to PDF, using \LaTeX. This has two big advantages over Word:
+
+-   A more professional look
+
+-   Vector graphics (you can zoom in forever, while retaining image quality)
+
+## Using packages
+
+Debugging a large report can be a pain. One simple improvement is including all necessary packages at the top. This way, any missing packages can be easily identified:
+
+```{r}
+library("sfsmisc") # contains eaxis() function for nice axes
+```
+
+*(When you type a hashtag (`#`), what follows is not interpreted as code, but as a comment.)*
+
+**Exercise**:
+
+-   Try rendering this Quarto file. If you see a bar at the top that says *"Package (...) required but it is not installed,"* click *"Install"* and wait for the download and installation to finish. Then, click **Render**.
+    -   If you're using **Windows** or **linux**, a shortcut for rendering is CTRL+Shift+K.
+    -   If you're using **OSX** (Mac), a shortcut for rendering is Cmd+Shift+K.
+
+\clearpage
+
+## Cross-referencing figures
+
+In part one we saw how to include a figure, change its height and width in the rendered Word file, and how to include a caption. Now let's try and cross-reference it in the text.
+
+**Exercise**:
+
+-   Following the example on the Quarto website [here](https://quarto.org/docs/authoring/cross-references.html#computations), add a label to the figure below and edit the sentence underneath the code chunk to cross-reference the figure. *(Replace the dots (...) with the cross-reference.)*
+
+```{r}
+#| echo: false
+#| fig.width: 5
+#| fig.height: 3
+#| dpi: 300
+#| fig.cap: "Example of box plots using a standard data set in R."
+
+par(mar = c(4, 4, 1, 1) + 0.1)
+plot(Sepal.Length ~ Species, data = iris, axes = FALSE, 
+     ylab = "Sepal length (mm)", 
+     boxwex = 0.25, staplewex = 0, col = "steelblue", 
+     lty = 1, lwd = 2, pch = 16)
+axis(1, 1:3, levels(iris$Species), tick = FALSE)
+eaxis(2)
+par(mar = c(5, 4, 4, 3) + 0.1)
+```
+
+In ... we see an example of R's plotting capabilities.
+
+## Old-school R markdown
+
+If you have prior experience with R markdown, I have good news: Quarto uses nearly identical syntax!
+
+**Exercise**:
+
+-   To see the the R markdown code that underlies this Quarto file, go to the upper-left corner where you see *"Source"* and *"Visual."* Click on **Source**.
+
+-   You can switch back and forth any time between the two views.
+
+## Including citations to scientific literature
+
+Professional documents would not be complete without the support for citations to scientific literature.
+
+**Exercise**:
+
+-   Search any peer-reviewed scientific article of your liking and note the DOI (document object identifier)
+
+-   Place your cursor at the end of the sentence below, go to **Insert** at the top of the source pane and choose *"Citation..."* Choose *"From DOI"* and enter the DOI you just looked up.
+
+-   Render the document to confirm you have a working citation.
+
+Look mom, my first Quarto citation:
+
+-   Prefer old-school R markdown? See this video: <https://youtu.be/zuuOYjE8m98>
+
+## References

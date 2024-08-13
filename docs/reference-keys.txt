@@ -19,5 +19,6 @@ what-is-untidy-data
 exercise-easy-1
 exercise-medium-1
 exercise-hard-1
-MWE
-useful-information
+quarto
+exercise-1
+exercise-2

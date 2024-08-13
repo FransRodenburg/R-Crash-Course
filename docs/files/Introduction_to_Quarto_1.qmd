@@ -1,0 +1,78 @@
+---
+title: "Introduction to Quarto (1 of 2)"
+author: "Dr. F.J. Rodenburg"
+format: docx
+editor: visual
+---
+
+## How to use this file
+
+Quarto allows you to weave together code, output and commentary into a single document. This means there is no need to clumsily copy-paste output into Word: We can simply generate a Word file by clicking the **Render** button at the top.
+
+**Exercise**:
+
+-   Look for the **Render** button at the top of the source pane and click it.
+
+-   If you don't know what is meant by "source pane," have a look at the video explaining the RStudio interface: <https://youtu.be/AHAR7j-IUOw>
+
+-   Nothing happens, run into errors, or otherwise unable to render the file?
+
+    -   Where did you save this file? Check whether a Word document was just created in this location. If so, everything worked correctly!
+
+    -   Ask the course coordinators for help. That's what we're here for!
+
+## Including code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+3 + 7
+```
+
+You can [add options](https://quarto.org/docs/computations/execution-options.html) to executable code like this:
+
+```{r}
+#| echo: false
+3 + 7
+```
+
+**Exercise**:
+
+-   Render the file again and scroll down to the section "**Including code**" what is the difference between the first and second example? What did `echo: false` accomplish?
+
+## Creating a new code block
+
+In an empty line, if you type a forward slash (/), you can see some examples of what you can insert in a Quarto file.
+
+**Exercise**:
+
+-   Place your cursor in the empty space below this line and type a forward slash (/). Choose *"R code chunk"*. Add a simple arithmetic operation to the R chunk (e.g. `2 + 2 * 4` and click **Render** to confirm the code is working.
+
+## 
+
+-   Don't see any empty space? Move your cursor to the end of this line and press Enter twice.
+
+## Including plots
+
+Here is a quick example of a basic figure that includes a caption. To avoid clutter, we again suppress the code used with the option `echo: false`.
+
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+#| dpi: 300
+
+plot(Sepal.Length ~ Species, data = iris)
+```
+
+**Exercise**:
+
+-   This figure is missing a caption. Add a chunk option to include a caption that says: "Example of box plots using a standard data set in R."
+
+-   Not sure how to do so? Check out the [options](https://quarto.org/docs/computations/execution-options.html#caption-and-alt-text) on the Quarto website.
+
+-   To test whether it worked, try rendering your file again and inspect the Word file.
+
+Once you are finished, you may close this file and proceed with part 2.
+
+## 

@@ -140,7 +140,7 @@
 \chapter*{Introduction}\label{introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
-This one-week course will improve your programming to the level required to pass \href{https://fransrodenburg.github.io/General-Research-Skills/}{General Research Skills}. Each day consists of about half an hour of explanation and 1--2 hours of assignments.
+This one-week course will improve your programming to the level required to pass \href{https://ibl-inspire.github.io/General-Research-Skills/}{General Research Skills}. Each day consists of about half an hour of explanation and 1--2 hours of assignments.
 
 \hypertarget{structure-of-this-course}{%
 \section*{Structure of This Course}\label{structure-of-this-course}}
@@ -158,7 +158,7 @@ This one-week course will improve your programming to the level required to pass
 \item
   \protect\hyperlink{data-manipulation}{Reading and manipulating data}
 \item
-  \protect\hyperlink{MWE}{Creating a Minimal Working Example}
+  \protect\hyperlink{quarto}{The basics of Quarto}
 \end{enumerate}
 
 The \texttt{swirl} assignment on day 1 is a great way to get used to the basic syntax (like remembering to close brackets). But if we build up your programming skill all the way from the fundamentals, explaining every step along the way, there is no way you could do anything remotely useful after only a week. Also, it would be excruciatingly boring.
@@ -171,7 +171,7 @@ Learning a programming language is similar to learning any other language: You c
 \section*{Examination}\label{examination}}
 \addcontentsline{toc}{section}{Examination}
 
-This course has no credits, exam or grade. However, during Of course, the things you pick up during this course can be used during the graded assignment of \href{https://fransrodenburg.github.io/General-Research-Skills/}{General Research Skills}, which is also in R.
+This course has no credits, exam or grade. However, during Of course, the things you pick up during this course can be used during the graded assignment of \href{https://ibl-inspire.github.io/General-Research-Skills/}{General Research Skills}, which is also in R.
 
 In the live version of this course, if time permits, we will go over some student solutions at the end of each day and discuss what works, what doesn't and why.
 
@@ -864,43 +864,27 @@ These two toy examples are very small data sets, so you might argue that it woul
   Bonus points if you can complete this exercise without developing a headache.
 \end{enumerate}
 
-\hypertarget{MWE}{%
-\chapter{Debugging}\label{MWE}}
+\hypertarget{quarto}{%
+\chapter{Literate Programming}\label{quarto}}
 
-What do you do when your script returns a warning or error? Where do you find relevant information? How do you write a good question about programming with a minimal reproducible example?
+An introduction to literate programming with Quarto.
 
-Total video length: \ldots{} min.\\
-Exercise length: \ldots--\ldots{} min.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-Getting stuck on a programming problem can be very frustrating. A minimal reproducible example (MRE) is a script that contains \textbf{only} the necessary code and data for others to reproduce your error. If you add an MRE to your question, you tend to get better, and quicker answers to your coding questions.
-
-\hypertarget{useful-information}{%
-\section{Useful information:}\label{useful-information}}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{dput}: Use this function to save your data set into code. If someone runs this code, the output will be your data set. Try for instance \texttt{dput(iris)}.
-\item
-  \texttt{set.seed}: Use this function before you simulate data to initialize the random number generator. Anyone who runs your code with the same seed as you will end up with exactly the same data.
-\item
-  \href{http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html}{Google's (old) R style guide}.\footnote{Their new style guide focuses on the \texttt{tidyverse}. The \texttt{tidyverse} is essentially a way to make code look `cleaner', but for an absolute beginner in R, it is another layer of complexity, as you will still need to use base R code in between. Hence why it is not a part of this course.}
-\end{itemize}
+Exercise length: 30--90 min.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\includegraphics[width=0.20833in,height=0.20833in]{figures/underconstruction.png} This chapter is a work in progress. Please check back later for updates.
+Literate programming allows you combine code, output and commentary. This way, you can author reports, presentations, websites and more, all from within the same RStudio interface, using the same familiar markdown language.
 
-\hypertarget{self-test}{%
-\chapter*{Self-Test}\label{self-test}}
-\addcontentsline{toc}{chapter}{Self-Test}
+Quarto is like R markdown, but with several improvements and simplifications. If you use RStudio, it also comes with a visual editor. In these exercises we are quickly going to explore the advantages Quarto offers.
 
-Test your R knowledge by answering the following questions.
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+Download the \href{files/Introduction_to_Quarto_1.qmd}{QMD file} and open it in RStudio. From there, the exercise is explained in the file itself.
 
-\ldots{}
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+Download the \href{files/Introduction_to_Quarto_1.qmd}{QMD file} and open it in RStudio. From there, the exercise is explained in the file itself.
 
 \end{document}
